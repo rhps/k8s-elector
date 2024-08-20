@@ -203,8 +203,8 @@ func (node *ElectorNode) run() error {
 		Name:            fmt.Sprintf("%s/%s-%s", node.config.Namespace, node.config.Name, node.config.ID),
 		ReleaseOnCancel: true,
 		LeaseDuration:   node.config.TTL,
-		RenewDeadline:   node.config.TTL / 3,
-		RetryPeriod:     node.config.TTL / 6,
+		RenewDeadline:   node.config.RenewDeadline,
+		RetryPeriod:     node.config.RetryPeriod,
 		Callbacks: leaderelection.LeaderCallbacks{
 			OnStartedLeading: func(i context.Context) {
 				klog.Infof("[%s] started leading", node.config.ID)

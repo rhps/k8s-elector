@@ -67,6 +67,9 @@ type ElectorConfig struct {
 	// retry period (the duration that elector nodes should wait between retry
 	// actions).
 	TTL time.Duration
+
+	RenewDeadline time.Duration
+	RetryPeriod   time.Duration
 }
 
 // Log logs the ElectorConfig values at INFO level.
